@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 12.9 (Ubuntu 12.9-2.pgdg20.04+1)
--- Dumped by pg_dump version 12.9 (Ubuntu 12.9-2.pgdg20.04+1)
+-- Dumped from database version 15.3
+-- Dumped by pg_dump version 15.3
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -18,13 +18,13 @@ SET row_security = off;
 
 DROP DATABASE students;
 --
--- Name: students; Type: DATABASE; Schema: -; Owner: freecodecamp
+-- Name: students; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE students WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C.UTF-8' LC_CTYPE = 'C.UTF-8';
+CREATE DATABASE students WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'Vietnamese_Vietnam.1258';
 
 
-ALTER DATABASE students OWNER TO freecodecamp;
+ALTER DATABASE students OWNER TO postgres;
 
 \connect students
 
@@ -44,7 +44,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: courses; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: courses; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.courses (
@@ -53,10 +53,10 @@ CREATE TABLE public.courses (
 );
 
 
-ALTER TABLE public.courses OWNER TO freecodecamp;
+ALTER TABLE public.courses OWNER TO postgres;
 
 --
--- Name: courses_course_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+-- Name: courses_course_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.courses_course_id_seq
@@ -68,17 +68,17 @@ CREATE SEQUENCE public.courses_course_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.courses_course_id_seq OWNER TO freecodecamp;
+ALTER TABLE public.courses_course_id_seq OWNER TO postgres;
 
 --
--- Name: courses_course_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+-- Name: courses_course_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.courses_course_id_seq OWNED BY public.courses.course_id;
 
 
 --
--- Name: majors; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: majors; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.majors (
@@ -87,10 +87,10 @@ CREATE TABLE public.majors (
 );
 
 
-ALTER TABLE public.majors OWNER TO freecodecamp;
+ALTER TABLE public.majors OWNER TO postgres;
 
 --
--- Name: majors_courses; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: majors_courses; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.majors_courses (
@@ -99,10 +99,10 @@ CREATE TABLE public.majors_courses (
 );
 
 
-ALTER TABLE public.majors_courses OWNER TO freecodecamp;
+ALTER TABLE public.majors_courses OWNER TO postgres;
 
 --
--- Name: majors_major_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+-- Name: majors_major_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.majors_major_id_seq
@@ -114,17 +114,17 @@ CREATE SEQUENCE public.majors_major_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.majors_major_id_seq OWNER TO freecodecamp;
+ALTER TABLE public.majors_major_id_seq OWNER TO postgres;
 
 --
--- Name: majors_major_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+-- Name: majors_major_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.majors_major_id_seq OWNED BY public.majors.major_id;
 
 
 --
--- Name: students; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: students; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.students (
@@ -136,10 +136,10 @@ CREATE TABLE public.students (
 );
 
 
-ALTER TABLE public.students OWNER TO freecodecamp;
+ALTER TABLE public.students OWNER TO postgres;
 
 --
--- Name: students_student_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+-- Name: students_student_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.students_student_id_seq
@@ -151,166 +151,166 @@ CREATE SEQUENCE public.students_student_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.students_student_id_seq OWNER TO freecodecamp;
+ALTER TABLE public.students_student_id_seq OWNER TO postgres;
 
 --
--- Name: students_student_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+-- Name: students_student_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.students_student_id_seq OWNED BY public.students.student_id;
 
 
 --
--- Name: courses course_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: courses course_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.courses ALTER COLUMN course_id SET DEFAULT nextval('public.courses_course_id_seq'::regclass);
 
 
 --
--- Name: majors major_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: majors major_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.majors ALTER COLUMN major_id SET DEFAULT nextval('public.majors_major_id_seq'::regclass);
 
 
 --
--- Name: students student_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: students student_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.students ALTER COLUMN student_id SET DEFAULT nextval('public.students_student_id_seq'::regclass);
 
 
 --
--- Data for Name: courses; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+-- Data for Name: courses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.courses VALUES (23, 'Data Structures and Algorithms');
-INSERT INTO public.courses VALUES (24, 'Web Programming');
-INSERT INTO public.courses VALUES (25, 'Database Systems');
-INSERT INTO public.courses VALUES (26, 'Computer Networks');
-INSERT INTO public.courses VALUES (27, 'SQL');
-INSERT INTO public.courses VALUES (28, 'Machine Learning');
-INSERT INTO public.courses VALUES (29, 'Computer Systems');
-INSERT INTO public.courses VALUES (30, 'Web Applications');
-INSERT INTO public.courses VALUES (31, 'Artificial Intelligence');
-INSERT INTO public.courses VALUES (32, 'Python');
-INSERT INTO public.courses VALUES (33, 'Object-Oriented Programming');
-INSERT INTO public.courses VALUES (34, 'Calculus');
-INSERT INTO public.courses VALUES (35, 'Game Architecture');
-INSERT INTO public.courses VALUES (36, 'Algorithms');
-INSERT INTO public.courses VALUES (37, 'UNIX');
-INSERT INTO public.courses VALUES (38, 'Server Administration');
-INSERT INTO public.courses VALUES (39, 'Network Security');
-
-
---
--- Data for Name: majors; Type: TABLE DATA; Schema: public; Owner: freecodecamp
---
-
-INSERT INTO public.majors VALUES (36, 'Database Administration');
-INSERT INTO public.majors VALUES (37, 'Web Development');
-INSERT INTO public.majors VALUES (38, 'Data Science');
-INSERT INTO public.majors VALUES (39, 'Network Engineering');
-INSERT INTO public.majors VALUES (40, 'Computer Programming');
-INSERT INTO public.majors VALUES (41, 'Game Design');
-INSERT INTO public.majors VALUES (42, 'System Administration');
+INSERT INTO public.courses VALUES (22, 'Data Structures and Algorithms');
+INSERT INTO public.courses VALUES (23, 'Web Programming');
+INSERT INTO public.courses VALUES (24, 'Database Systems');
+INSERT INTO public.courses VALUES (25, 'Computer Networks');
+INSERT INTO public.courses VALUES (26, 'SQL');
+INSERT INTO public.courses VALUES (27, 'Machine Learning');
+INSERT INTO public.courses VALUES (28, 'Computer Systems');
+INSERT INTO public.courses VALUES (29, 'Web Applications');
+INSERT INTO public.courses VALUES (30, 'Artificial Intelligence');
+INSERT INTO public.courses VALUES (31, 'Python');
+INSERT INTO public.courses VALUES (32, 'Object-Oriented Programming');
+INSERT INTO public.courses VALUES (33, 'Calculus');
+INSERT INTO public.courses VALUES (34, 'Game Architecture');
+INSERT INTO public.courses VALUES (35, 'Algorithms');
+INSERT INTO public.courses VALUES (36, 'UNIX');
+INSERT INTO public.courses VALUES (37, 'Server Administration');
+INSERT INTO public.courses VALUES (38, 'Network Security');
 
 
 --
--- Data for Name: majors_courses; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+-- Data for Name: majors; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.majors_courses VALUES (36, 23);
-INSERT INTO public.majors_courses VALUES (37, 24);
-INSERT INTO public.majors_courses VALUES (36, 25);
-INSERT INTO public.majors_courses VALUES (38, 23);
-INSERT INTO public.majors_courses VALUES (39, 26);
-INSERT INTO public.majors_courses VALUES (36, 27);
-INSERT INTO public.majors_courses VALUES (38, 28);
-INSERT INTO public.majors_courses VALUES (39, 29);
-INSERT INTO public.majors_courses VALUES (40, 26);
-INSERT INTO public.majors_courses VALUES (36, 30);
-INSERT INTO public.majors_courses VALUES (41, 31);
-INSERT INTO public.majors_courses VALUES (38, 32);
-INSERT INTO public.majors_courses VALUES (40, 33);
-INSERT INTO public.majors_courses VALUES (42, 29);
-INSERT INTO public.majors_courses VALUES (41, 34);
-INSERT INTO public.majors_courses VALUES (37, 23);
-INSERT INTO public.majors_courses VALUES (38, 34);
-INSERT INTO public.majors_courses VALUES (37, 33);
-INSERT INTO public.majors_courses VALUES (41, 35);
-INSERT INTO public.majors_courses VALUES (42, 26);
-INSERT INTO public.majors_courses VALUES (41, 36);
-INSERT INTO public.majors_courses VALUES (42, 37);
-INSERT INTO public.majors_courses VALUES (42, 38);
-INSERT INTO public.majors_courses VALUES (40, 29);
-INSERT INTO public.majors_courses VALUES (40, 32);
-INSERT INTO public.majors_courses VALUES (39, 39);
-INSERT INTO public.majors_courses VALUES (37, 30);
-INSERT INTO public.majors_courses VALUES (39, 36);
+INSERT INTO public.majors VALUES (43, 'Database Administration');
+INSERT INTO public.majors VALUES (44, 'Web Development');
+INSERT INTO public.majors VALUES (45, 'Data Science');
+INSERT INTO public.majors VALUES (46, 'Network Engineering');
+INSERT INTO public.majors VALUES (47, 'Computer Programming');
+INSERT INTO public.majors VALUES (48, 'Game Design');
+INSERT INTO public.majors VALUES (49, 'System Administration');
 
 
 --
--- Data for Name: students; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+-- Data for Name: majors_courses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.students VALUES (6, 'Rhea', 'Kellems', 36, 2.5);
-INSERT INTO public.students VALUES (7, 'Emma', 'Gilbert', NULL, NULL);
-INSERT INTO public.students VALUES (8, 'Kimberly', 'Whitley', 37, 3.8);
-INSERT INTO public.students VALUES (9, 'Jimmy', 'Felipe', 36, 3.7);
-INSERT INTO public.students VALUES (10, 'Kyle', 'Stimson', NULL, 2.8);
-INSERT INTO public.students VALUES (11, 'Casares', 'Hijo', 41, 4.0);
-INSERT INTO public.students VALUES (12, 'Noe', 'Savage', NULL, 3.6);
-INSERT INTO public.students VALUES (13, 'Sterling', 'Boss', 41, 3.9);
-INSERT INTO public.students VALUES (14, 'Brian', 'Davis', NULL, 2.3);
-INSERT INTO public.students VALUES (15, 'Kaija', 'Uronen', 41, 3.7);
-INSERT INTO public.students VALUES (16, 'Faye', 'Conn', 41, 2.1);
-INSERT INTO public.students VALUES (17, 'Efren', 'Reilly', 37, 3.9);
-INSERT INTO public.students VALUES (18, 'Danh', 'Nhung', NULL, 2.4);
-INSERT INTO public.students VALUES (19, 'Maxine', 'Hagenes', 36, 2.9);
-INSERT INTO public.students VALUES (20, 'Larry', 'Saunders', 38, 2.2);
-INSERT INTO public.students VALUES (21, 'Karl', 'Kuhar', 37, NULL);
-INSERT INTO public.students VALUES (22, 'Lieke', 'Hazenveld', 41, 3.5);
-INSERT INTO public.students VALUES (23, 'Obie', 'Hilpert', 37, NULL);
-INSERT INTO public.students VALUES (24, 'Peter', 'Booysen', NULL, 2.9);
-INSERT INTO public.students VALUES (25, 'Nathan', 'Turner', 36, 3.3);
-INSERT INTO public.students VALUES (26, 'Gerald', 'Osiki', 38, 2.2);
-INSERT INTO public.students VALUES (27, 'Vanya', 'Hassanah', 41, 4.0);
-INSERT INTO public.students VALUES (28, 'Roxelana', 'Florescu', 36, 3.2);
-INSERT INTO public.students VALUES (29, 'Helene', 'Parker', 38, 3.4);
-INSERT INTO public.students VALUES (30, 'Mariana', 'Russel', 37, 1.8);
-INSERT INTO public.students VALUES (31, 'Ajit', 'Dhungel', NULL, 3.0);
-INSERT INTO public.students VALUES (32, 'Mehdi', 'Vandenberghe', 36, 1.9);
-INSERT INTO public.students VALUES (33, 'Dejon', 'Howell', 37, 4.0);
-INSERT INTO public.students VALUES (34, 'Aliya', 'Gulgowski', 42, 2.6);
-INSERT INTO public.students VALUES (35, 'Ana', 'Tupajic', 38, 3.1);
-INSERT INTO public.students VALUES (36, 'Hugo', 'Duran', NULL, 3.8);
+INSERT INTO public.majors_courses VALUES (43, 22);
+INSERT INTO public.majors_courses VALUES (44, 23);
+INSERT INTO public.majors_courses VALUES (43, 24);
+INSERT INTO public.majors_courses VALUES (45, 22);
+INSERT INTO public.majors_courses VALUES (46, 25);
+INSERT INTO public.majors_courses VALUES (43, 26);
+INSERT INTO public.majors_courses VALUES (45, 27);
+INSERT INTO public.majors_courses VALUES (46, 28);
+INSERT INTO public.majors_courses VALUES (47, 25);
+INSERT INTO public.majors_courses VALUES (43, 29);
+INSERT INTO public.majors_courses VALUES (48, 30);
+INSERT INTO public.majors_courses VALUES (45, 31);
+INSERT INTO public.majors_courses VALUES (47, 32);
+INSERT INTO public.majors_courses VALUES (49, 28);
+INSERT INTO public.majors_courses VALUES (48, 33);
+INSERT INTO public.majors_courses VALUES (44, 22);
+INSERT INTO public.majors_courses VALUES (45, 33);
+INSERT INTO public.majors_courses VALUES (44, 32);
+INSERT INTO public.majors_courses VALUES (48, 34);
+INSERT INTO public.majors_courses VALUES (49, 25);
+INSERT INTO public.majors_courses VALUES (48, 35);
+INSERT INTO public.majors_courses VALUES (49, 36);
+INSERT INTO public.majors_courses VALUES (49, 37);
+INSERT INTO public.majors_courses VALUES (47, 28);
+INSERT INTO public.majors_courses VALUES (47, 31);
+INSERT INTO public.majors_courses VALUES (46, 38);
+INSERT INTO public.majors_courses VALUES (44, 29);
+INSERT INTO public.majors_courses VALUES (46, 35);
 
 
 --
--- Name: courses_course_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+-- Data for Name: students; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.courses_course_id_seq', 39, true);
+INSERT INTO public.students VALUES (15, 'Rhea', 'Kellems', 43, 2.5);
+INSERT INTO public.students VALUES (16, 'Emma', 'Gilbert', NULL, NULL);
+INSERT INTO public.students VALUES (17, 'Kimberly', 'Whitley', 44, 3.8);
+INSERT INTO public.students VALUES (18, 'Jimmy', 'Felipe', 43, 3.7);
+INSERT INTO public.students VALUES (19, 'Kyle', 'Stimson', NULL, 2.8);
+INSERT INTO public.students VALUES (20, 'Casares', 'Hijo', 48, 4.0);
+INSERT INTO public.students VALUES (21, 'Noe', 'Savage', NULL, 3.6);
+INSERT INTO public.students VALUES (22, 'Sterling', 'Boss', 48, 3.9);
+INSERT INTO public.students VALUES (23, 'Brian', 'Davis', NULL, 2.3);
+INSERT INTO public.students VALUES (24, 'Kaija', 'Uronen', 48, 3.7);
+INSERT INTO public.students VALUES (25, 'Faye', 'Conn', 48, 2.1);
+INSERT INTO public.students VALUES (26, 'Efren', 'Reilly', 44, 3.9);
+INSERT INTO public.students VALUES (27, 'Danh', 'Nhung', NULL, 2.4);
+INSERT INTO public.students VALUES (28, 'Maxine', 'Hagenes', 43, 2.9);
+INSERT INTO public.students VALUES (29, 'Larry', 'Saunders', 45, 2.2);
+INSERT INTO public.students VALUES (30, 'Karl', 'Kuhar', 44, NULL);
+INSERT INTO public.students VALUES (31, 'Lieke', 'Hazenveld', 48, 3.5);
+INSERT INTO public.students VALUES (32, 'Obie', 'Hilpert', 44, NULL);
+INSERT INTO public.students VALUES (33, 'Peter', 'Booysen', NULL, 2.9);
+INSERT INTO public.students VALUES (34, 'Nathan', 'Turner', 43, 3.3);
+INSERT INTO public.students VALUES (35, 'Gerald', 'Osiki', 45, 2.2);
+INSERT INTO public.students VALUES (36, 'Vanya', 'Hassanah', 48, 4.0);
+INSERT INTO public.students VALUES (37, 'Roxelana', 'Florescu', 43, 3.2);
+INSERT INTO public.students VALUES (38, 'Helene', 'Parker', 45, 3.4);
+INSERT INTO public.students VALUES (39, 'Mariana', 'Russel', 44, 1.8);
+INSERT INTO public.students VALUES (40, 'Ajit', 'Dhungel', NULL, 3.0);
+INSERT INTO public.students VALUES (41, 'Mehdi', 'Vandenberghe', 43, 1.9);
+INSERT INTO public.students VALUES (42, 'Dejon', 'Howell', 44, 4.0);
+INSERT INTO public.students VALUES (43, 'Aliya', 'Gulgowski', 49, 2.6);
+INSERT INTO public.students VALUES (44, 'Ana', 'Tupajic', 45, 3.1);
+INSERT INTO public.students VALUES (45, 'Hugo', 'Duran', NULL, 3.8);
 
 
 --
--- Name: majors_major_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+-- Name: courses_course_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.majors_major_id_seq', 42, true);
-
-
---
--- Name: students_student_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
---
-
-SELECT pg_catalog.setval('public.students_student_id_seq', 36, true);
+SELECT pg_catalog.setval('public.courses_course_id_seq', 38, true);
 
 
 --
--- Name: courses courses_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: majors_major_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.majors_major_id_seq', 49, true);
+
+
+--
+-- Name: students_student_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.students_student_id_seq', 45, true);
+
+
+--
+-- Name: courses courses_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.courses
@@ -318,7 +318,7 @@ ALTER TABLE ONLY public.courses
 
 
 --
--- Name: majors_courses majors_courses_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: majors_courses majors_courses_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.majors_courses
@@ -326,7 +326,7 @@ ALTER TABLE ONLY public.majors_courses
 
 
 --
--- Name: majors majors_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: majors majors_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.majors
@@ -334,7 +334,7 @@ ALTER TABLE ONLY public.majors
 
 
 --
--- Name: students students_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: students students_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.students
@@ -342,7 +342,7 @@ ALTER TABLE ONLY public.students
 
 
 --
--- Name: majors_courses majors_courses_course_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: majors_courses majors_courses_course_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.majors_courses
@@ -350,7 +350,7 @@ ALTER TABLE ONLY public.majors_courses
 
 
 --
--- Name: majors_courses majors_courses_major_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: majors_courses majors_courses_major_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.majors_courses
@@ -358,7 +358,7 @@ ALTER TABLE ONLY public.majors_courses
 
 
 --
--- Name: students students_major_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: students students_major_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.students
